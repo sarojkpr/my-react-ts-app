@@ -27,13 +27,7 @@ async function initializeChatWidget(token: string) {
       // Listen for 'lcw:chatQueued' event
       window.addEventListener("lcw:chatQueued", () => {
         // Dispatch a different custom event to avoid a loop
-        window.dispatchEvent(new CustomEvent("lcw:customChatQueued"));
-      });
-
-      // Listen for the custom event instead of 'lcw:chatQueued'
-      window.addEventListener("lcw:customChatQueued", () => {
-        console.log("Chat queued event processed.");
-        // Proceed with any logic you'd like to handle for the event
+        window.dispatchEvent(new CustomEvent("lcw:occCustomChatQueued"));
       });
 
       // Event listener for occChatClosed

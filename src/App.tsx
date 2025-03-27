@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Button } from '@mui/material'; // Import Material-UI Button
 import LiveChatWidget from './LiveChatWidgetEmbedded'; // Assuming you have this component
+import useChatWidgetEvents from './useChatWidgetEvents';
 
 const App: React.FC = () => {
   const [showWidget, setShowWidget] = useState(false);
   const [token, setToken] = useState<string>(''); // Replace with your token
 
+  useChatWidgetEvents(); // Custom hook to handle chat widget events
   // Button click handler to toggle the chat widget visibility
   const handleLiveChatClick = async () => {
     // Assume you get a token dynamically or from an API call
